@@ -4,7 +4,7 @@ import pandas as pd
 
 # Define the URL of the Rotten Tomatoes page for a specific movie
 urls = [
-    "https://www.rottentomatoes.com/m/john_wick_chapter_4/reviews?intcmp=rt-scorecard_tomatometer-reviews"
+    "https://en.wikipedia.org/wiki/List_of_American_films_of_2022"
 ]
 
 
@@ -16,6 +16,7 @@ for url in urls:
 
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
+    links = soup.find_all('a')
 
 # Find the reviews section of the page and extract the review data
 reviews_section = soup.find("div", {"id": "reviews"})
